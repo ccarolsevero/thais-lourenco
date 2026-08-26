@@ -1,0 +1,40 @@
+{
+  "categories": [
+    {
+      "slug": "identidade",
+      "name": "Identidade e autoconhecimento",
+      "nav": "Identidade",
+      "description": "Quem somos, os papéis que ocupamos, limites, escolhas e os processos de mudança ao longo da vida.",
+      "cta": "Explorar identidade e autoconhecimento"
+    },
+    {
+      "slug": "relacoes",
+      "name": "Relações",
+      "nav": "Relações",
+      "description": "Família, relacionamentos, conflitos, limites e as diferentes maneiras como nos relacionamos com os outros e conosco.",
+      "cta": "Explorar relações"
+    },
+    {
+      "slug": "vida",
+      "name": "Vida, escolhas e mudanças",
+      "nav": "Vida e escolhas",
+      "description": "Decisões, expectativas, transições e aqueles momentos em que começamos a questionar o lugar que estamos ocupando na própria vida.",
+      "cta": "Explorar conteúdos"
+    },
+    {
+      "slug": "trabalho",
+      "name": "Trabalho e desenvolvimento humano",
+      "nav": "Trabalho",
+      "description": "Comportamento, relações profissionais e os desafios humanos que também aparecem no ambiente de trabalho.",
+      "cta": "Explorar conteúdos"
+    },
+    {
+      "slug": "familia",
+      "name": "Família e educação",
+      "nav": "Família",
+      "description": "Relações familiares, parentalidade, convivência e os diferentes ambientes que participam do desenvolvimento.",
+      "cta": "Explorar conteúdos"
+    }
+  ],
+  "articles": []
+}

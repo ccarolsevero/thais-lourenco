@@ -1,16 +1,13 @@
 {
-  "name": "giselemaiolo",
+  "name": "thaislourenco",
   "version": "1.0.0",
-  "description": "",
+  "description": "Site institucional de Thais Lourenço",
   "main": "script.js",
   "scripts": {
-    "sync:instagram": "node scripts/sync-instagram.mjs"
+    "start": "python3 -m http.server 5501"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
-  "dependencies": {
-    "playwright": "^1.62.1"
-  }
+  "type": "module"
 }

@@ -8,7 +8,8 @@
 
   const onScroll = () => {
     if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 24);
+    const pinned = header.classList.contains("is-scrolled") && !document.querySelector(".hero");
+    header.classList.toggle("is-scrolled", pinned || window.scrollY > 24);
   };
 
   onScroll();
@@ -23,11 +24,66 @@
 
     menu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
+        if (link.hasAttribute("data-nav-sub-toggle")) return;
         menu.hidden = true;
         menuToggle.setAttribute("aria-expanded", "false");
       });
     });
   }
+
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  document.querySelectorAll("[data-nav-sub]").forEach((item) => {
+    const toggle = item.querySelector("[data-nav-sub-toggle]");
+    if (!toggle) return;
+
+    const setOpen = (open) => {
+      item.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+    };
+
+    item.addEventListener("mouseenter", () => {
+      if (finePointer.matches) setOpen(true);
+    });
+
+    item.addEventListener("mouseleave", () => {
+      if (finePointer.matches) setOpen(false);
+    });
+
+    toggle.addEventListener("click", (event) => {
+      const inMobileMenu = Boolean(item.closest("[data-menu]"));
+      if (inMobileMenu) {
+        event.preventDefault();
+        setOpen(!item.classList.contains("is-open"));
+        return;
+      }
+      if (!item.classList.contains("is-open")) {
+        event.preventDefault();
+        setOpen(true);
+      }
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    document.querySelectorAll("[data-nav-sub].is-open").forEach((item) => {
+      if (item.contains(event.target)) return;
+      item.classList.remove("is-open");
+      const toggle = item.querySelector("[data-nav-sub-toggle]");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    document.querySelectorAll("[data-nav-sub].is-open").forEach((item) => {
+      item.classList.remove("is-open");
+      const toggle = item.querySelector("[data-nav-sub-toggle]");
+      if (toggle) {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.focus();
+      }
+    });
+  });
 
   const reveals = document.querySelectorAll(".reveal");
   if (reveals.length) {
@@ -48,87 +104,84 @@
     }
   }
 
-  const formatCount = (value) => {
-    if (!value) return value;
-    return String(value).replace(".", ",");
-  };
+  const bindRequestForm = (form) => {
+    const status = form.querySelector("[data-form-status]");
+    const fields = [...form.querySelectorAll("input, select, textarea")];
 
-  const applyProfileMeta = (data) => {
-    document.querySelectorAll("[data-ig-followers]").forEach((el) => {
-      el.textContent = formatCount(data.followers);
-    });
-    document.querySelectorAll("[data-ig-following]").forEach((el) => {
-      el.textContent = formatCount(data.following);
-    });
-    const bio = document.querySelector("[data-ig-bio]");
-    if (bio && data.bio) bio.textContent = data.bio;
-  };
+    const showStatus = (message, isError = false) => {
+      if (!status) return;
+      status.hidden = false;
+      status.textContent = message;
+      status.classList.toggle("is-error", isError);
+    };
 
-  const renderInstagramGrid = (posts) => {
-    const grid = document.querySelector("[data-instagram-grid]");
-    if (!grid || !posts?.length) return;
+    const isFilled = (field) => {
+      if (field.type === "radio") {
+        return Boolean(form.querySelector(`input[type="radio"][name="${CSS.escape(field.name)}"]:checked`));
+      }
+      if (field.type === "checkbox") return field.checked;
+      return Boolean(String(field.value).trim());
+    };
 
-    grid.innerHTML = posts
-      .slice(0, 6)
-      .map(
-        (post, index) => `
-        <a
-          class="instagram-card reveal${index ? ` delay-${Math.min(index, 5)}` : ""}"
-          href="${post.url}"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Ver publicação no Instagram"
-        >
-          <img
-            src="${post.thumbnail}"
-            alt="${post.alt || "Publicação de Gisele Maiolo no Instagram"}"
-            loading="lazy"
-            width="640"
-            height="640"
-          />
-          ${post.isVideo ? '<span class="instagram-badge">Reel</span>' : ""}
-          ${post.isCarousel ? '<span class="instagram-badge">Álbum</span>' : ""}
-          <span class="instagram-card-overlay" aria-hidden="true">
-            <span class="instagram-card-icon">↗</span>
-          </span>
-        </a>`
-      )
-      .join("");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-    grid.querySelectorAll(".reveal").forEach((el) => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        el.classList.add("is-visible");
+      const missing = fields.find((field) => field.required && !isFilled(field));
+      if (missing) {
+        missing.focus();
+        showStatus("Preencha os campos obrigatórios para enviar a solicitação.", true);
         return;
       }
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          });
-        },
-        { threshold: 0.12 }
-      );
-      observer.observe(el);
+
+      const emailField = form.querySelector('input[type="email"]');
+      if (emailField && !emailField.checkValidity()) {
+        emailField.focus();
+        showStatus("Informe um e-mail válido.", true);
+        return;
+      }
+
+      const seenRadios = new Set();
+      const lines = fields
+        .map((field) => {
+          if (field.type === "radio") {
+            if (seenRadios.has(field.name)) return null;
+            seenRadios.add(field.name);
+            const checked = form.querySelector(`input[type="radio"][name="${CSS.escape(field.name)}"]:checked`);
+            return `${field.name}: ${checked ? checked.value : "—"}`;
+          }
+          if (field.type === "checkbox") {
+            return `${field.name || field.id}: ${field.checked ? "Sim" : "Não"}`;
+          }
+          const label = field.name || field.id;
+          const value = String(field.value).trim() || "—";
+          return `${label}: ${value}`;
+        })
+        .filter(Boolean)
+        .join("\n");
+
+      const subject = form.getAttribute("data-subject") || "Solicitação";
+      const to = form.getAttribute("data-mailto") || "";
+      const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
+      window.location.href = mailto;
+      showStatus("A solicitação foi aberta no seu e-mail. Revise os dados e envie para concluir.");
     });
   };
 
-  const loadInstagram = async () => {
-    try {
-      const response = await fetch("data/instagram-posts.json", { cache: "no-cache" });
-      if (!response.ok) throw new Error("Feed indisponível");
-      const data = await response.json();
-      applyProfileMeta(data);
-      renderInstagramGrid(data.posts);
-    } catch {
-      const grid = document.querySelector("[data-instagram-grid]");
-      if (grid) {
-        grid.innerHTML =
-          '<p class="instagram-loading">Não foi possível carregar as publicações. <a href="https://www.instagram.com/giselemaiolooficial/" target="_blank" rel="noopener noreferrer">Visite o perfil no Instagram</a>.</p>';
-      }
-    }
-  };
+  document.querySelectorAll("[data-request-form]").forEach(bindRequestForm);
 
-  loadInstagram();
+  const contactPaths = document.querySelectorAll("[data-contact-path]");
+  if (contactPaths.length) {
+    const syncContactPath = () => {
+      const hash = window.location.hash;
+      contactPaths.forEach((link) => {
+        const active = link.getAttribute("href") === hash;
+        link.classList.toggle("is-active", active);
+        if (active) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    };
+
+    syncContactPath();
+    window.addEventListener("hashchange", syncContactPath);
+  }
 })();
