@@ -548,24 +548,6 @@ ul {
   color: var(--wine);
 }
 
-.hero-title {
-  margin: 0 0 1.5rem;
-  max-width: 16ch;
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5.8vw, 4.35rem);
-  font-weight: 500;
-  line-height: 1.22;
-  letter-spacing: 0.01em;
-}
-
-.hero-lead {
-  margin: 0 0 2.25rem;
-  max-width: 38ch;
-  font-size: 1.125rem;
-  color: var(--ink-soft);
-  font-weight: 400;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1030,6 +1012,7 @@ a.path-card[aria-current="true"] {
   width: 100%;
 }
 
+.hero-title,
 .page-title {
   margin: 0 0 1.15rem;
   max-width: 16ch;
@@ -1040,15 +1023,21 @@ a.path-card[aria-current="true"] {
   letter-spacing: 0.01em;
 }
 
+.hero-title,
 .page-title-wide {
   max-width: 18ch;
 }
 
+.hero-lead,
 .page-lead {
   margin: 0;
   max-width: 42ch;
   font-size: 1.125rem;
   color: var(--ink-soft);
+}
+
+.hero-lead {
+  margin: 0 0 2.25rem;
 }
 
 .page-lead + .page-lead {
@@ -1510,23 +1499,6 @@ a.path-card[aria-current="true"] {
   margin: 0;
   font-size: 0.75rem;
   color: var(--ink-soft);
-}
-
-.contact-direct {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.75rem;
-  margin: 1.75rem 0 0;
-  font-size: 1.05rem;
-}
-
-.contact-direct a {
-  color: var(--wine);
-  transition: color 0.25s var(--ease);
-}
-
-.contact-direct a:hover {
-  color: var(--ink);
 }
 
 .theme-star {
