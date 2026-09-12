@@ -1472,7 +1472,8 @@ a.path-card[aria-current="true"] {
 
 @media (max-width: 699px) {
   .instituto-hero .hero-cover-img {
-    object-position: 84% 70%;
+    object-position: 84% 30%;
+    transform-origin: 84% 30%;
   }
 }
 
@@ -2083,13 +2084,21 @@ a.path-card[aria-current="true"] {
     padding: var(--header-h) 0 2.75rem;
   }
 
+  .hero-cover-frame {
+    overflow: hidden;
+    height: min(38svh, 16.5rem);
+  }
+
   .hero-cover-img {
     position: relative;
     inset: auto;
+    display: block;
     width: 100%;
-    height: min(38svh, 16.5rem);
+    height: 100%;
     object-fit: cover;
-    object-position: 80% 42%;
+    object-position: 82% 28%;
+    transform: scale(2.15);
+    transform-origin: 82% 28%;
   }
 
   .hero-cover::after,
