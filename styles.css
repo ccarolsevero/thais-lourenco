@@ -2101,6 +2101,12 @@ a.path-card[aria-current="true"] {
     transform-origin: 82% 28%;
   }
 
+  .hero-zoom-soft .hero-cover-img {
+    object-position: 76% 40%;
+    transform: scale(1.28);
+    transform-origin: 76% 40%;
+  }
+
   .hero-cover::after,
   .page-hero-cover::after {
     display: none;
