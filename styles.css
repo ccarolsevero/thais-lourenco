@@ -2072,28 +2072,43 @@ a.path-card[aria-current="true"] {
 }
 
 @media (max-width: 699px) {
-  .hero {
-    min-height: auto;
-    align-items: flex-end;
-    padding: calc(var(--header-h) + 2.5rem) 0 3.25rem;
-  }
-
-  .hero-cover {
-    min-height: 100svh;
-  }
-
-  .page-hero-cover {
-    min-height: 78svh;
+  .hero,
+  .hero-cover,
+  .page-hero-cover,
+  .instituto-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding: var(--header-h) 0 2.75rem;
   }
 
   .hero-cover-img {
-    object-position: 82% 22%;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: min(68svh, 32rem);
+    object-fit: cover;
+    object-position: 80% 42%;
   }
 
   .hero-cover::after,
   .page-hero-cover::after {
-    background:
-      linear-gradient(180deg, rgba(245, 237, 237, 0.28) 0%, rgba(245, 237, 237, 0.42) 36%, rgba(245, 237, 237, 0.88) 100%);
+    display: none;
+  }
+
+  .hero-cover .hero-inner,
+  .page-hero-cover .page-hero-inner {
+    padding-top: 1.75rem;
+  }
+
+  .hero-cover .hero-title,
+  .page-hero-cover .page-title {
+    text-shadow: none;
+  }
+
+  .page-hero-cover + .who {
+    padding-top: clamp(3.25rem, 10vw, 5rem);
   }
 
   .hero-title {
