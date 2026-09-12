@@ -2087,7 +2087,7 @@ a.path-card[aria-current="true"] {
     position: relative;
     inset: auto;
     width: 100%;
-    height: min(68svh, 32rem);
+    height: min(38svh, 16.5rem);
     object-fit: cover;
     object-position: 80% 42%;
   }
