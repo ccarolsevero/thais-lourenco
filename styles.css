@@ -1375,6 +1375,26 @@ a.path-card[aria-current="true"] {
   margin: 0 0 1rem;
 }
 
+.instituto-hero {
+  min-height: min(76svh, 42rem);
+}
+
+.instituto-hero .hero-cover-img {
+  object-position: 80% 64%;
+}
+
+.instituto-hero::after {
+  background:
+    linear-gradient(90deg, rgba(245, 237, 237, 0.78) 0%, rgba(245, 237, 237, 0.36) 32%, rgba(245, 237, 237, 0.06) 58%, transparent 100%),
+    linear-gradient(180deg, rgba(245, 237, 237, 0.28) 0%, transparent 18%, transparent 86%, var(--blush) 100%);
+}
+
+@media (max-width: 699px) {
+  .instituto-hero .hero-cover-img {
+    object-position: 84% 70%;
+  }
+}
+
 @media (min-width: 900px) {
   .steps {
     grid-template-columns: repeat(3, 1fr);
