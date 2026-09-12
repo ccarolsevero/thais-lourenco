@@ -1069,12 +1069,6 @@ a.path-card[aria-current="true"] {
   color: var(--wine);
 }
 
-#sobre .section-title {
-  font-family: var(--font-body);
-  letter-spacing: -0.02em;
-  color: var(--wine);
-}
-
 #sobre .section-intro {
   margin-bottom: 0;
 }
@@ -1385,11 +1379,14 @@ a.path-card[aria-current="true"] {
   scroll-margin-top: calc(var(--header-h) + 1rem);
 }
 
-.instituto-mark {
+.instituto-mark,
+#sobre .instituto-mark {
   display: block;
   width: 7.25rem;
+  max-width: 7.25rem;
   height: auto;
-  margin: 0 0 1rem;
+  margin: 0 0 1.75rem;
+  object-fit: contain;
 }
 
 .instituto-hero {
