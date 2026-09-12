@@ -1369,51 +1369,9 @@ a.path-card[aria-current="true"] {
 
 .instituto-mark {
   display: block;
-  width: min(16.5rem, 72vw);
+  width: 7.25rem;
   height: auto;
-  margin: 0 0 1.15rem;
-}
-
-.instituto-mark-inline {
-  width: min(14.5rem, 70vw);
-  margin: 0 0 1.35rem;
-}
-
-.instituto-hero {
-  padding: calc(var(--header-h) + 2.25rem) 0 0;
-  background: var(--blush);
-}
-
-.instituto-hero-inner {
-  display: grid;
-  gap: 2rem;
-  align-items: end;
-}
-
-.instituto-hero-photo {
-  margin: 0 calc(var(--space) * -1) 0;
-}
-
-.instituto-hero-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-@media (min-width: 900px) {
-  .instituto-hero {
-    padding: calc(var(--header-h) + 2.5rem) 0 0;
-  }
-
-  .instituto-hero-inner {
-    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.92fr);
-    align-items: center;
-    gap: 2.5rem;
-  }
-
-  .instituto-hero-photo {
-    margin: 0;
-  }
+  margin: 0 0 1rem;
 }
 
 @media (min-width: 900px) {
