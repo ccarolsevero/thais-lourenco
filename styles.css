@@ -1055,6 +1055,11 @@ a.path-card[aria-current="true"] {
   color: var(--ink-soft);
 }
 
+.section-title + .page-lead {
+  margin-top: 1.15rem;
+  max-width: 42rem;
+}
+
 .hero-lead {
   margin: 0 0 2.25rem;
 }
@@ -1274,7 +1279,7 @@ a.path-card[aria-current="true"] {
 }
 
 .look-list li {
-  padding: 1.1rem 0;
+  padding: 1.25rem 0;
   border-bottom: 1px solid var(--line);
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2vw, 1.45rem);
@@ -1285,11 +1290,16 @@ a.path-card[aria-current="true"] {
 @media (min-width: 800px) {
   .look-list {
     grid-template-columns: 1fr 1fr;
-    column-gap: 3.5rem;
+    column-gap: 0;
   }
 
   .look-list li:nth-child(odd) {
-    padding-right: 1rem;
+    padding-right: 2.25rem;
+    border-right: 1px solid var(--line);
+  }
+
+  .look-list li:nth-child(even) {
+    padding-left: 2.25rem;
   }
 }
 
@@ -1311,6 +1321,23 @@ a.path-card[aria-current="true"] {
 .steps-section .section-intro,
 .faq .section-intro {
   margin-bottom: 2.25rem;
+}
+
+#formacao {
+  background: var(--foam);
+  border-top: 1px solid var(--line);
+}
+
+#formacao .section-title,
+#metodo .section-title {
+  max-width: 22ch;
+}
+
+#metodo .section-intro p:not(.eyebrow):not(.page-lead) {
+  max-width: 42rem;
+  margin: 1.15rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1.125rem;
 }
 
 /* Steps */
