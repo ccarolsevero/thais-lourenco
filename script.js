@@ -85,6 +85,12 @@
     });
   });
 
+  if (location.hash) {
+    const target = document.getElementById(location.hash.slice(1));
+    target?.classList.add("is-visible");
+    target?.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+  }
+
   const reveals = document.querySelectorAll(".reveal");
   if (reveals.length) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
