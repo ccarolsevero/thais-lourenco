@@ -519,7 +519,9 @@ ul {
 
 .hero-cover .btn-ghost,
 .page-hero-cover .btn-ghost {
-  background: rgba(255, 250, 250, 0.9);
+  background: var(--foam);
+  color: var(--wine);
+  border-color: var(--wine);
 }
 
 .who-photo,
@@ -626,6 +628,22 @@ ul {
   margin: 0;
   font-size: 1.125rem;
   color: rgba(250, 247, 241, 0.78);
+}
+
+.recognize-action {
+  margin: 2rem 0 0;
+}
+
+.recognize .btn-primary,
+.weight .btn-primary {
+  background: var(--foam);
+  color: var(--wine);
+}
+
+.recognize .btn-primary:hover,
+.weight .btn-primary:hover {
+  background: var(--beige);
+  color: var(--wine-deep);
 }
 
 /* Work */
