@@ -1639,18 +1639,28 @@ a.path-card[aria-current="true"] {
 .footer-contact {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.65rem 1.75rem;
+  align-items: center;
+  gap: 1rem;
   margin: 0;
-  font-size: 0.95rem;
 }
 
-.footer-contact a {
+.footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
   color: var(--ink-soft);
   transition: color 0.25s var(--ease);
 }
 
-.footer-contact a:hover {
+.footer-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+.footer-icon:hover {
   color: var(--wine);
 }
 
