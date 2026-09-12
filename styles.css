@@ -2089,6 +2089,12 @@ a.path-card[aria-current="true"] {
     height: min(38svh, 16.5rem);
   }
 
+  .hero-cover-frame picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   .hero-cover-img {
     position: relative;
     inset: auto;
@@ -2105,6 +2111,15 @@ a.path-card[aria-current="true"] {
     object-position: 76% 40%;
     transform: scale(1.28);
     transform-origin: 76% 40%;
+  }
+
+  .hero-photo-portrait .hero-cover-frame {
+    height: min(48svh, 22rem);
+  }
+
+  .hero-photo-portrait .hero-cover-img {
+    object-position: 50% 32%;
+    transform: none;
   }
 
   .hero-cover::after,
