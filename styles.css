@@ -1073,6 +1073,11 @@ a.path-card[aria-current="true"] {
   margin-bottom: 0;
 }
 
+#sobre .section-title {
+  margin: 0 0 1.5rem;
+  color: var(--wine-deep);
+}
+
 #sobre .section-intro p {
   max-width: 42rem;
   margin: 0 0 1.15rem;
@@ -1382,10 +1387,10 @@ a.path-card[aria-current="true"] {
 .instituto-mark,
 #sobre .instituto-mark {
   display: block;
-  width: 7.25rem;
-  max-width: 7.25rem;
+  width: 14rem;
+  max-width: 14rem;
   height: auto;
-  margin: 0 0 1.75rem;
+  margin: 0 0 1.35rem;
   object-fit: contain;
 }
 
