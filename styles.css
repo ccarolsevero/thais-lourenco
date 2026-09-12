@@ -1059,22 +1059,31 @@ a.path-card[aria-current="true"] {
   padding: 0 var(--space);
 }
 
-.prose-left {
-  max-width: var(--wrap);
-}
-
-.prose-left > * {
-  max-width: 42rem;
-}
-
 .prose h2 {
   margin: 0 0 1.5rem;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.6vw, 2.6rem);
+  font-family: var(--font-body);
+  font-size: clamp(1.85rem, 3.4vw, 2.55rem);
   font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: 0.01em;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
   color: var(--wine);
+}
+
+#sobre .section-title {
+  font-family: var(--font-body);
+  letter-spacing: -0.02em;
+  color: var(--wine);
+}
+
+#sobre .section-intro {
+  margin-bottom: 0;
+}
+
+#sobre .section-intro p {
+  max-width: 42rem;
+  margin: 0 0 1.15rem;
+  color: var(--ink-soft);
+  font-size: 1.125rem;
 }
 
 .prose p {
