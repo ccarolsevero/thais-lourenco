@@ -1037,6 +1037,52 @@ a.path-card[aria-current="true"] {
   padding: calc(var(--header-h) + 3.5rem) 0 4rem;
 }
 
+@media (min-width: 700px) {
+  .hero-photo-portrait.hero-cover,
+  .hero-photo-portrait.page-hero-cover {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(22rem, 0.9fr);
+    align-items: stretch;
+    gap: 0;
+    padding-right: 0;
+  }
+
+  .hero-photo-portrait .hero-cover-frame {
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    align-self: stretch;
+    height: 100%;
+    min-height: min(68svh, 38rem);
+    overflow: hidden;
+  }
+
+  .hero-photo-portrait .hero-cover-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 18%;
+  }
+
+  .hero-photo-portrait .hero-inner,
+  .hero-photo-portrait .page-hero-inner {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+    max-width: none;
+    width: auto;
+    margin: 0;
+    padding-right: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  .hero-photo-portrait.hero-cover::after,
+  .hero-photo-portrait.page-hero-cover::after {
+    display: none;
+  }
+}
+
 .page-hero-inner {
   max-width: var(--wrap);
   margin: 0 auto;
