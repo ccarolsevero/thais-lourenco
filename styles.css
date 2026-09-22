@@ -2267,30 +2267,30 @@ a.path-card[aria-current="true"] {
   }
 
   .hero-photo-portrait .hero-cover-frame {
-    height: min(64svh, 30rem);
+    height: min(42svh, 19rem);
   }
 
   .hero-photo-portrait .hero-cover-img,
   .hero-photo-portrait.hero-zoom-soft .hero-cover-img,
   .page-hero-cover.hero-photo-portrait .hero-cover-img {
-    object-position: 72% 12%;
+    object-position: 72% 42%;
     transform: none;
   }
 
   .page-hero-cover.atendimento-hero.hero-photo-portrait .hero-cover-img {
-    object-position: 74% 14%;
+    object-position: 74% 44%;
   }
 
   .page-hero-cover.instituto-hero.hero-photo-portrait .hero-cover-img {
-    object-position: 72% 12%;
+    object-position: 72% 42%;
   }
 
   .page-hero-cover.palestras-hero.hero-photo-portrait .hero-cover-img {
-    object-position: 40% 0;
+    object-position: 40% 8%;
   }
 
   .page-hero-cover.empresas-hero.hero-photo-portrait .hero-cover-img {
-    object-position: 58% 18%;
+    object-position: 58% 44%;
   }
 
   .hero-cover::after,
