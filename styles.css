@@ -866,6 +866,10 @@ ul {
   padding: 0 0 clamp(4.5rem, 12vw, 7rem);
 }
 
+.voices + .paths {
+  padding-top: clamp(5.5rem, 14vw, 9rem);
+}
+
 .contact-paths {
   padding-top: clamp(6.5rem, 16vw, 10.5rem);
 }
@@ -1363,6 +1367,10 @@ a.path-card[aria-current="true"] {
   color: var(--beige);
 }
 
+.weight-close:has(.btn) {
+  margin-top: 1.85rem;
+}
+
 /* Look */
 
 .look {
@@ -1629,7 +1637,7 @@ a.path-card[aria-current="true"] {
 /* FAQ */
 
 .faq {
-  padding: 0 0 clamp(2rem, 6vw, 3rem);
+  padding: clamp(5.5rem, 14vw, 9rem) 0 clamp(2rem, 6vw, 3rem);
 }
 
 .faq-list {
@@ -2048,6 +2056,28 @@ a.path-card[aria-current="true"] {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
+}
+
+.page-sobre .prose {
+  max-width: var(--wrap);
+}
+
+.page-sobre .prose > * {
+  max-width: 42rem;
+}
+
+.page-sobre .creds {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.page-sobre .creds-inner {
+  padding: 0 var(--space);
+  text-align: left;
+}
+
+.page-sobre .creds-list {
+  justify-content: flex-start;
 }
 
 .feed {
