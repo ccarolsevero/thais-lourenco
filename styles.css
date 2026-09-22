@@ -1570,6 +1570,10 @@ a.path-card[aria-current="true"] {
   transform-origin: 83% 34%;
 }
 
+.page-hero-cover.palestras-hero .hero-cover-img {
+  object-position: 84% 10%;
+}
+
 @media (max-width: 699px) {
   .page-hero-cover.atendimento-hero .hero-cover-img {
     object-position: 86% 42%;
@@ -1581,6 +1585,12 @@ a.path-card[aria-current="true"] {
     object-position: 86% 28%;
     transform: scale(1.5);
     transform-origin: 86% 28%;
+  }
+
+  .page-hero-cover.palestras-hero .hero-cover-img {
+    object-position: 78% 12%;
+    transform: scale(1.18);
+    transform-origin: 78% 12%;
   }
 }
 
