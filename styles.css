@@ -603,6 +603,15 @@ ul {
   color: var(--beige);
 }
 
+.weight .topics {
+  gap: 0.75rem 1.5rem;
+}
+
+.weight .topics li:not(:last-child)::after {
+  content: none;
+  margin: 0;
+}
+
 .topics-compact {
   margin-bottom: 1.75rem;
   padding-bottom: 1.5rem;
@@ -775,6 +784,10 @@ ul {
 
 .page-hero-cover + .who {
   padding-top: clamp(6.5rem, 16vw, 10.5rem);
+}
+
+.page-hero-cover + .prose-section-pad {
+  padding-top: clamp(3.5rem, 8vw, 5.5rem);
 }
 
 .who-inner {
@@ -1092,6 +1105,10 @@ a.path-card[aria-current="true"] {
   color: var(--wine);
 }
 
+.prose p + h2 {
+  margin-top: 2.75rem;
+}
+
 #sobre .section-intro {
   margin-bottom: 0;
 }
@@ -1215,7 +1232,8 @@ a.path-card[aria-current="true"] {
 
 .weight-title {
   margin: 0 0 2rem;
-  max-width: 16ch;
+  max-width: 40rem;
+  width: 100%;
   font-family: var(--font-display);
   font-size: clamp(2rem, 4.4vw, 3.2rem);
   font-weight: 400;
@@ -2137,7 +2155,8 @@ a.path-card[aria-current="true"] {
     text-shadow: none;
   }
 
-  .page-hero-cover + .who {
+  .page-hero-cover + .who,
+  .page-hero-cover + .prose-section-pad {
     padding-top: clamp(3.25rem, 10vw, 5rem);
   }
 
