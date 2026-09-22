@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&family=Pinyon+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=btn-gap" />
+    <link rel="stylesheet" href="styles.css?v=mob3" />
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Ir ao conteúdo</a>
@@ -81,9 +81,12 @@
     </header>
 
     <main id="conteudo">
-      <section class="page-hero page-hero-cover hero-zoom-soft instituto-hero" id="topo">
+      <section class="page-hero page-hero-cover hero-zoom-soft instituto-hero hero-photo-portrait" id="topo">
         <div class="hero-cover-frame">
-          <img class="hero-cover-img" src="assets/photos/instituto-hero-wide.jpg?v=grad1" alt="" width="1536" height="1024" />
+          <picture>
+            <source media="(max-width: 699px)" srcset="assets/photos/instituto-hero.jpg?v=grad1" width="643" height="1024" />
+            <img class="hero-cover-img" src="assets/photos/instituto-hero-wide.jpg?v=grad1" alt="" width="1536" height="1024" />
+          </picture>
         </div>
         <div class="page-hero-inner">
           <div class="page-hero-copy">

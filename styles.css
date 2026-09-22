@@ -1574,23 +1574,16 @@ a.path-card[aria-current="true"] {
   object-position: 84% 10%;
 }
 
+.page-hero-cover.empresas-hero .hero-cover-img {
+  object-position: 88% 42%;
+}
+
 @media (max-width: 699px) {
-  .page-hero-cover.atendimento-hero .hero-cover-img {
-    object-position: 86% 42%;
-    transform: scale(1.42);
-    transform-origin: 86% 42%;
-  }
-
-  .page-hero-cover.instituto-hero .hero-cover-img {
-    object-position: 86% 28%;
-    transform: scale(1.5);
-    transform-origin: 86% 28%;
-  }
-
-  .page-hero-cover.palestras-hero .hero-cover-img {
-    object-position: 78% 12%;
-    transform: scale(1.18);
-    transform-origin: 78% 12%;
+  .page-hero-cover.atendimento-hero .hero-cover-img,
+  .page-hero-cover.instituto-hero .hero-cover-img,
+  .page-hero-cover.palestras-hero .hero-cover-img,
+  .page-hero-cover.empresas-hero .hero-cover-img {
+    transform: none;
   }
 }
 
@@ -2142,6 +2135,7 @@ a.path-card[aria-current="true"] {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.2vw, 1.75rem);
   font-weight: 500;
+}
 
 .article-copy h3 a:hover {
   color: var(--wine);
@@ -2230,8 +2224,6 @@ a.path-card[aria-current="true"] {
 .request-form h3 {
   font-weight: 500;
 }
-  transition-delay: 0.5s;
-}
 
 @media (max-width: 699px) {
   .hero,
@@ -2275,12 +2267,30 @@ a.path-card[aria-current="true"] {
   }
 
   .hero-photo-portrait .hero-cover-frame {
-    height: min(48svh, 22rem);
+    height: min(64svh, 30rem);
   }
 
-  .hero-photo-portrait .hero-cover-img {
-    object-position: 50% 32%;
+  .hero-photo-portrait .hero-cover-img,
+  .hero-photo-portrait.hero-zoom-soft .hero-cover-img,
+  .page-hero-cover.hero-photo-portrait .hero-cover-img {
+    object-position: 72% 12%;
     transform: none;
+  }
+
+  .page-hero-cover.atendimento-hero.hero-photo-portrait .hero-cover-img {
+    object-position: 74% 14%;
+  }
+
+  .page-hero-cover.instituto-hero.hero-photo-portrait .hero-cover-img {
+    object-position: 72% 12%;
+  }
+
+  .page-hero-cover.palestras-hero.hero-photo-portrait .hero-cover-img {
+    object-position: 40% 0;
+  }
+
+  .page-hero-cover.empresas-hero.hero-photo-portrait .hero-cover-img {
+    object-position: 58% 18%;
   }
 
   .hero-cover::after,
